@@ -1,5 +1,6 @@
 import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
+import 'package:dart_cli/commands/students/students_command.dart';
 
 void main(List<String> arguments) {
   // final argParser = ArgParser();
@@ -9,7 +10,7 @@ void main(List<String> arguments) {
   // final argResult = argParser.parse(arguments);
 
   CommandRunner('ADF CLI', 'Dart CLI')
-    ..addCommand(ExemploCommand())
+    ..addCommand(StudentsCommand())
     ..run(arguments);
 }
 
