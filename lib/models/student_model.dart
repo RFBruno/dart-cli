@@ -32,7 +32,7 @@ class StudentModel {
       'address': address.toMap(),
     };
 
-    if(age != null){
+    if (age != null) {
       map['age'] = age;
     }
 
@@ -43,15 +43,30 @@ class StudentModel {
 
   factory StudentModel.fromMap(Map<String, dynamic> map) {
     return StudentModel(
-      id: map['id'] ?? 0,
-      name: map['name'] ??'',
-      age: map['age'] ?? 0,
+      id: map['id'] ?? null,
+      name: map['name'] ?? '',
+      age: map['age'] ?? null,
       nameCourses: List<String>.from(map['nameCourses'] ?? <String>[]),
-      courses:  map['courses']?.map<CourseModel>((c) => CourseModel.fromMap(c)).toList() ?? <CourseModel>[],
+      courses: map['courses']
+              ?.map<CourseModel>((c) => CourseModel.fromMap(c))
+              .toList() ??
+          <CourseModel>[],
       address: AddressModel.fromMap(map['address'] ?? {}),
     );
   }
 
   factory StudentModel.fromJson(String source) =>
       StudentModel.fromMap(jsonDecode(source) ?? {});
+
+  @override
+  String toString() {
+    return '''
+        id -> $id
+        name -> $name
+        age -> $age
+        nameCourses -> $nameCourses
+        courses -> $courses
+        address -> $address
+''';
+  }
 }

@@ -28,4 +28,13 @@ class CourseModel {
   }
 
   factory CourseModel.fromJson(String source) => CourseModel.fromMap(json.decode(source) ?? {});
+
+  @override
+  String toString() {
+    return '''
+    id -> $id
+    name -> $name
+    isStudent -> $isStudent
+''';
+  }
 }
