@@ -5,7 +5,7 @@ import 'dart:convert';
 class CourseModel {
   final int id;
   final String name;
-  final bool isStudent;
+  bool isStudent;
 
   CourseModel({
     required this.id,
@@ -32,9 +32,11 @@ class CourseModel {
   @override
   String toString() {
     return '''
-    id -> $id
-    name -> $name
-    isStudent -> $isStudent
-''';
+
+     ----------------------------
+    | id -> $id                  
+    | name -> $name              
+    | isStudent -> $isStudent    
+     ----------------------------''';
   }
 }
